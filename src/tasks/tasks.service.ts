@@ -23,4 +23,8 @@ export class TasksService {
   async updateTask(id: string, task: Partial<Task>): Promise<Task> {
     return this.taskModel.findByIdAndUpdate(id, task, { new: true }).exec();
   }
+
+  async deleteTask(id: string): Promise<Task> {
+    return this.taskModel.findByIdAndDelete(id).exec();
+  }
 }
