@@ -3,11 +3,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TasksModule } from './tasks/tasks.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://nestjsCRUD:crudnestjs1324@crud-operations.qlifh.mongodb.net/?retryWrites=true&w=majority&appName=CRUD-operations',
-    ),
-    TasksModule,
-  ],
+  imports: [MongooseModule.forRoot(process.env.MONGODB_URI), TasksModule],
 })
 export class AppModule {}
